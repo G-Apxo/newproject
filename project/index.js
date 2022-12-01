@@ -41,11 +41,36 @@ function showMovies(movies) {
         </div>
         `
         main.appendChild(movieEl)
-    })
+   
+
+  const modal = document.getElementById("myModal");
+  const modalcontent = document.getElementById("modal-content");
+  const span = document.getElementsByClassName("close")[0];
+  movieEl.onclick = function () {
+    modal.style.display = "block";
+  };
+  span.onclick = () => {
+    modal.style.display = "none";
+  };
+  window.onclick = (event) =>{
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+  modalcontent.innerHTML = `
+          <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>${title}</h2>
+          <p>${overview}</p>
+          <img src="${IMG_PATH + poster_path}"alt = "${title}"/>
+          </div>
+          `;
+})
 }
 
 
-// გაფერადება რეიტინგის მიხედვით
+
+        // გაფერადება რეიტინგის მიხედვით
 function getClassByRate(vote) {
     if (vote >= 7 & vote <= 8) {
         return 'green'
@@ -55,7 +80,6 @@ function getClassByRate(vote) {
         return 'red'
     }
 }
-
 
 
 //სერჩი
@@ -74,13 +98,7 @@ form.addEventListener('submit', (e) => {
 
 
 
-
-    // const searchTerm = search.value
-
-    // if(searchTerm && searchTerm !== '') {
-    //     getMovies(SEARCH_API + searchTerm)
-
-    //     search.value = ''
-    // } else {
-    //     window.location.reload()
-    // }
+    // loadingის ტაიმერი
+// setTimeout(function(){
+//         window.location.href = 'Mainpage.html';
+//     }, 5000);
