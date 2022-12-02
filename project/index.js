@@ -1,3 +1,10 @@
+
+// setTimeout(function(){
+//         window.location.href = 'allmovies.html';
+//     }, 5000);
+
+
+
 const API_URL = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=3fd2be6f0c70a2a598f084ddfb75487c&page=1'
 const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
 const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=3fd2be6f0c70a2a598f084ddfb75487c&query="'
@@ -31,7 +38,6 @@ function showMovies(movies) {
 
         movieEl.innerHTML = `
             <img src="${IMG_PATH + poster_path}" alt="${title}">
-            <img src= "${favorite}" onclick="${addFavorite}" alt="${title}">
             <div class="movie-info">
           <h3>${title}</h3>
           <span class="${getClassByRate(vote_average)}">${vote_average}</span>
