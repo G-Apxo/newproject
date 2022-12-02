@@ -31,6 +31,7 @@ function showMovies(movies) {
 
         movieEl.innerHTML = `
             <img src="${IMG_PATH + poster_path}" alt="${title}">
+            <img src= "${favorite}" onclick="${addFavorite}" alt="${title}">
             <div class="movie-info">
           <h3>${title}</h3>
           <span class="${getClassByRate(vote_average)}">${vote_average}</span>
@@ -74,14 +75,6 @@ window.onclick = (event) =>{
 })
 }
 
-
-
-
-
-
-
-
-
         // გაფერადება რეიტინგის მიხედვით
 function getClassByRate(vote) {
     if (vote >= 7 & vote <= 8) {
@@ -92,7 +85,6 @@ function getClassByRate(vote) {
         return 'red'
     }
 }
-
 
 //სერჩი
 form.addEventListener('submit', (e) => {
@@ -114,3 +106,11 @@ form.addEventListener('submit', (e) => {
 // setTimeout(function(){
 //         window.location.href = 'Mainpage.html';
 //     }, 5000);
+
+
+var favorite = "../src/image/icons8-favorite-48.png"
+
+function addFavorite () {
+    favorite = "../src/image/icons8-favorite-50.png"
+
+}
