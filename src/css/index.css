@@ -128,8 +128,6 @@ main {
 
 }
 
-
-
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -153,8 +151,8 @@ main {
     background-color: #942121;
     margin: auto;
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+    border: 1px solid #b62f2f;
+    width: 50%;
     
   }
   

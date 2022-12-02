@@ -46,27 +46,39 @@ function showMovies(movies) {
   const modal = document.getElementById("myModal");
   const modalcontent = document.getElementById("modal-content");
   const span = document.getElementsByClassName("close")[0];
-  movieEl.onclick = function () {
+  movieEl.addEventListener("click", () => {
+    console.log(movie);
     modal.style.display = "block";
-  };
-  span.onclick = () => {
+
+span.onclick = () => {
+  modal.style.display = "none";
+};
+window.onclick = (event) =>{
+  if (event.target == modal) {
     modal.style.display = "none";
-  };
-  window.onclick = (event) =>{
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  };
-  modalcontent.innerHTML = `
-          <div class="modal-content">
-          <span class="close">&times;</span>
-          <h2>${title}</h2>
-          <p>${overview}</p>
-          <img src="${IMG_PATH + poster_path}"alt = "${title}"/>
-          </div>
-          `;
+  }
+};
+    modalcontent.innerHTML = `
+    <img src="${IMG_PATH + poster_path}" alt="${title}">
+    <div class="movie-info">
+    <h3>${title}</h3>
+    <span class="${getClassByRate(vote_average)}">${vote_average}</span>
+    </div>
+    <div class="overview">
+    <h3>Overview</h3>
+    ${overview}
+    </div>
+    `;
+    ;
+})
 })
 }
+
+
+
+
+
+
 
 
 
